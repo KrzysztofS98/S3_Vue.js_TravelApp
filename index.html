@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-<head><script src="./js/color-modes.js"></script>
+<head>
+    <script src="./js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-<link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./dist/css/sticky-footer.css" rel="stylesheet">
 
     <style>
@@ -96,26 +97,12 @@
     </style>
 
 
-
-
-
-
-
-
-
-
 </head>
 
 <body>
 
 <!--Ikonki do dark theme-->
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-<!--    <symbol id="check2" viewBox="0 0 16 16">-->
-<!--        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>-->
-<!--    </symbol>-->
-<!--    <symbol id="circle-half" viewBox="0 0 16 16">-->
-<!--        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>-->
-<!--    </symbol>-->
     <symbol id="moon-stars-fill" viewBox="0 0 16 16">
         <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
         <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
@@ -134,307 +121,334 @@
             aria-expanded="false"
             data-bs-toggle="dropdown"
             aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+            <use href="#circle-half"></use>
+        </svg>
         <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
     </button>
     <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
         <li>
-            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                    aria-pressed="false">
+                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                    <use href="#sun-fill"></use>
+                </svg>
                 Light
-                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+                <svg class="bi ms-auto d-none" width="1em" height="1em">
+                    <use href="#check2"></use>
+                </svg>
             </button>
         </li>
         <li>
-            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                    aria-pressed="false">
+                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                    <use href="#moon-stars-fill"></use>
+                </svg>
                 Dark
-                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+                <svg class="bi ms-auto d-none" width="1em" height="1em">
+                    <use href="#check2"></use>
+                </svg>
             </button>
         </li>
-<!--        <li>-->
-<!--            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">-->
-<!--                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>-->
-<!--                Auto-->
-<!--                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>-->
-<!--            </button>-->
-<!--        </li>-->
     </ul>
 </div>
 <!--Koniec sekcji odpowiedzialnej za dark theme-->
 
 
-<!--<svg xmlns="http://www.w3.org/2000/svg" class="d-none">-->
-<!--    <symbol id="arrow-right-short" viewBox="0 0 16 16">-->
-<!--        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>-->
-<!--    </symbol>-->
-<!--    <symbol id="x-lg" viewBox="0 0 16 16">-->
-<!--        <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>-->
-<!--        <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>-->
-<!--    </symbol>-->
-<!--</svg>-->
+<header>
+    <div class="container py-3">
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between pb-3 mb-4 border-bottom">
+            <a class="d-flex align-items-center link-body-emphasis text-decoration-none">
+                <img class="me-3" src="./brand/icons8-location-94.png" alt="" width="40" height="40">
+                <span class="fs-4">Aplikacja podróżnicza</span>
+            </a>
 
-
-
-    <header>
-        <div class="container py-3">
-            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between pb-3 mb-4 border-bottom">
-                <a class="d-flex align-items-center link-body-emphasis text-decoration-none">
-                    <img class="me-3" src="./brand/icons8-location-94.png" alt="" width="40" height="40">
-                    <span class="fs-4">Aplikacja podróżnicza</span>
-                </a>
-
-                <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                    <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Propozycje destynacji</a>
-                    <a class="py-2 link-body-emphasis text-decoration-none" href="#">Dziennik podróży</a>
-                </nav>
-            </div>
-
-            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-                <h1 class="display-4 fw-normal text-body-emphasis">Cześć!</h1>
-                <p class="fs-5 text-body-secondary">Witamy Cię w asystencie planowania twojej kolejnej podróży. Podaj nam odpowidzi na nasze
-                    pytania z formularza poniżej, a postaramy się zaproponować destynację twojej kolejnej podróży odpowiadającą twoim wymaganiom.</p>
-            </div>
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#recomended-destinations">Propozycje destynacji</a>
+                <a class="py-2 link-body-emphasis text-decoration-none" href="#travel-diary">Dziennik podróży</a>
+            </nav>
         </div>
-    </header>
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis">Cześć!</h1>
+            <p class="fs-5 text-body-secondary">Witamy Cię w asystencie planowania twojej kolejnej podróży. Podaj nam
+                odpowidzi na nasze
+                pytania z formularza poniżej, a postaramy się zaproponować destynację twojej kolejnej podróży
+                odpowiadającą twoim wymaganiom.</p>
+        </div>
+    </div>
+</header>
 
 <main>
 
 
+    <div class="b-example-divider"></div>
 
-<div class="b-example-divider"></div>
+    <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
 
-<div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+        <form class="needs-validation">
 
-    <form class="needs-validation">
+            <div class="row g-3">
+                <a id="recomended-destinations"></a>
+                <h3 class="mb-1">Preferencje</h3>
 
-        <div class="row g-3">
-            <h4 class="mb-1">Preferencje</h4>
-
-            <div class="col-sm-6">
-                <label for="firstName" class="form-label">Imię</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-
-            </div>
-
-            <div class="col-sm-6">
-                <label for="email" class="form-label">E-Mail</label>
-                <input type="text" class="form-control" id="email" placeholder="" value="" required>
-            </div>
-
-            <div class="col-12">
-                <label for="username" class="form-label">Nazwa w instagram (Funkcjonalność testowa, dla przyszłych rozwiązań z AI)</label>
-                <div class="input-group">
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control" id="username" placeholder="Nazwa użytkownika (niewymagana)">
+                <div class="col-sm-6">
+                    <label for="firstName" class="form-label">Imię</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
 
                 </div>
 
-<!--                <hr class="mt-4">-->
-
-
-                <div class="col-12">
-                    <label for="country" class="form-label">Preferowany miesiąc podróży</label>
-                    <select class="form-select" id="country" required>
-                        <option value="">Wybierz miesiąc...</option>
-                        <option>Styczeń</option>
-                        <option>Luty</option>
-                        <option>Marzec</option>
-                        <option>Kwiecień</option>
-                        <option>Maj</option>
-                        <option>Czerwiec</option>
-                        <option>Lipiec</option>
-                        <option>Sierpień</option>
-                        <option>Wrzesień</option>
-                        <option>Październik</option>
-                        <option>Listopad</option>
-                        <option>Grudzień</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Proszę wybierz właściwy miesiąc.
-                    </div>
+                <div class="col-sm-6">
+                    <label for="email" class="form-label">E-Mail</label>
+                    <input type="text" class="form-control" id="email" placeholder="" value="" required>
                 </div>
 
                 <div class="col-12">
-                    <label for="state" class="form-label">Główny cel podróży</label>
-                    <select class="form-select" id="state" required>
-                        <option value="">Wybierz główny cel podróży...</option>
-                        <option>Cena</option>
-                        <option>Kuchnia</option>
-                        <option>Kultura</option>
-                        <option>Natura</option>
-                        <option>Podróż</option>
-                        <option>Przygoda</option>
-                        <option>Relaks</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Wymagane podanie celu podróży.
+                    <label for="username" class="form-label">Nazwa w instagram (Funkcjonalność testowa, dla przyszłych
+                        rozwiązań z AI)</label>
+                    <div class="input-group">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" id="username"
+                               placeholder="Nazwa użytkownika (niewymagana)">
+
+                    </div>
+
+                    <!--                <hr class="mt-4">-->
+
+
+                    <div class="col-12">
+                        <label for="country" class="form-label">Preferowany miesiąc podróży</label>
+                        <select class="form-select" id="country" required>
+                            <option value="">Wybierz miesiąc...</option>
+                            <option>Styczeń</option>
+                            <option>Luty</option>
+                            <option>Marzec</option>
+                            <option>Kwiecień</option>
+                            <option>Maj</option>
+                            <option>Czerwiec</option>
+                            <option>Lipiec</option>
+                            <option>Sierpień</option>
+                            <option>Wrzesień</option>
+                            <option>Październik</option>
+                            <option>Listopad</option>
+                            <option>Grudzień</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Proszę wybierz właściwy miesiąc.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="state" class="form-label">Główny cel podróży</label>
+                        <select class="form-select" id="state" required>
+                            <option value="">Wybierz główny cel podróży...</option>
+                            <option>Cena</option>
+                            <option>Kuchnia</option>
+                            <option>Kultura</option>
+                            <option>Natura</option>
+                            <option>Podróż</option>
+                            <option>Przygoda</option>
+                            <option>Relaks</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Wymagane podanie celu podróży.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="zip" class="form-label">Dodatkowy cel podróży</label>
+
+                        <select class="form-select" id="zip" required>
+                            <option value="">Wybierz dodatkowy cel podróży...</option>
+                            <option value="">Wybierz główny cel podróży...</option>
+                            <option>Cena</option>
+                            <option>Kuchnia</option>
+                            <option>Kultura</option>
+                            <option>Natura</option>
+                            <option>Podróż</option>
+                            <option>Przygoda</option>
+                            <option>Relaks</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Wymagane wybranie celu podróży.
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-12">
-                    <label for="zip" class="form-label">Dodatkowy cel podróży</label>
 
-                    <select class="form-select" id="zip" required>
-                        <option value="">Wybierz dodatkowy cel podróży...</option>
-                        <option value="">Wybierz główny cel podróży...</option>
-                        <option>Cena</option>
-                        <option>Kuchnia</option>
-                        <option>Kultura</option>
-                        <option>Natura</option>
-                        <option>Podróż</option>
-                        <option>Przygoda</option>
-                        <option>Relaks</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Wymagane wybranie celu podróży.
-                    </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="privacy-accept">
+                    <label class="form-check-label" for="privacy-accept">Akceptuję politykę prywatności</label>
                 </div>
+                <button class="btn btn-primary" type="submit">Zaproponuj destynacje</button>
+
             </div>
+        </form>
+    </div>
 
 
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="privacy-accept">
-                <label class="form-check-label" for="privacy-accept">Akceptuję politykę prywatności</label>
-            </div>
-            <button class="btn btn-primary" type="submit">Zaproponuj destynacje</button>
+    <div class="b-example-divider"></div>
 
-<!--            <div class="form-check">-->
-<!--                <input type="checkbox" class="form-check-input" id="save-info">-->
-<!--                <label class="form-check-label" for="save-info">Wyrażam zgodę na przetwarzanie danych w celu rozbudowy platformy o funkcjonalności wykorzystujące AI</label>-->
-<!--            </div>-->
+    <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Podaj propozycje</button>
         </div>
-    </form>
-</div>
-
-
-<div class="b-example-divider"></div>
-
-<div class="col-lg-6 col-xxl-4 my-5 mx-auto">
-    <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="submit">Podaj propozycje</button>
-    </div>
-</div>
-
-<div class="b-example-divider"></div>
-
-<div class="d-flex gap-2 justify-content-center py-5">
-    <div id="app">
-        <h1>Dynamiczna Tabela</h1>
-
-        <form v-if="!editingItem" @submit.prevent="addItem">
-            <label for="continent">Kontynent:</label>
-            <select id="continent" v-model="newItem.continent" required>
-                <option value="Europa">Europa</option>
-                <option value="Ameryka Północna">Ameryka Północna</option>
-                <option value="Ameryka Południowa">Ameryka Południowa</option>
-                <option value="Azja">Azja</option>
-                <option value="Afryka">Afryka</option>
-                <option value="Australia">Australia</option>
-            </select>
-            <label for="country">Kraj:</label>
-            <input type="text" id="country" v-model="newItem.country" required>
-            <label for="travelPurpose">Główny Cel Podróży:</label>
-            <select id="travelPurpose" v-model="newItem.travelPurpose" required>
-                <option value="Wycieczka turystyczna">Wycieczka turystyczna</option>
-                <option value="Biznesowa podróż">Biznesowa podróż</option>
-                <option value="Wakacje">Wakacje</option>
-            </select>
-            <label for="month">Miesiąc:</label>
-            <select id="month" v-model="newItem.month" required>
-                <option value="Styczeń">Styczeń</option>
-                <option value="Luty">Luty</option>
-                <option value="Marzec">Marzec</option>
-                <!-- Dodaj pozostałe miesiące -->
-            </select>
-            <label for="cost">Koszt:</label>
-            <input type="number" id="cost" v-model="newItem.cost" required>
-            <button type="submit">Dodaj</button>
-        </form>
-        <form v-if="editingItem" @submit.prevent="updateItem">
-            <label for="continent">Kontynent:</label>
-            <select id="continent" v-model="editingItem.continent" required>
-                <option value="Europa">Europa</option>
-                <option value="Ameryka Północna">Ameryka Północna</option>
-                <option value="Ameryka Południowa">Ameryka Południowa</option>
-                <option value="Azja">Azja</option>
-                <option value="Afryka">Afryka</option>
-                <option value="Australia">Australia</option>
-            </select>
-            <label for="country">Kraj:</label>
-            <input type="text" id="country" v-model="editingItem.country" required>
-            <label for="travelPurpose">Główny Cel Podróży:</label>
-            <select id="travelPurpose" v-model="editingItem.travelPurpose" required>
-                <option value="Wycieczka turystyczna">Wycieczka turystyczna</option>
-                <option value="Biznesowa podróż">Biznesowa podróż</option>
-                <option value="Wakacje">Wakacje</option>
-            </select>
-            <label for="month">Miesiąc:</label>
-            <select id="month" v-model="editingItem.month" required>
-                <option value="Styczeń">Styczeń</option>
-                <option value="Luty">Luty</option>
-                <option value="Marzec">Marzec</option>
-                <!-- Dodaj pozostałe miesiące -->
-            </select>
-            <label for="cost">Koszt:</label>
-            <input type="number" id="cost" v-model="editingItem.cost" required>
-            <button type="submit">Zapisz</button>
-            <button @click="cancelEdit">Anuluj</button>
-        </form>
-
-        <table>
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Kontynent</th>
-                <th>Kraj</th>
-                <th>Główny Cel Podróży</th>
-                <th>Miesiąc</th>
-                <th>Koszt</th>
-                <th>Akcje</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="item in items" :key="item.id">
-                <td>{{ item.id }}</td>
-                <td>{{ item.continent }}</td>
-                <td>{{ item.country }}</td>
-                <td>{{ item.travelPurpose }}</td>
-                <td>{{ item.month }}</td>
-                <td>{{ item.cost }}</td>
-                <td>
-                    <button @click="editItem(item)">Edytuj</button>
-                    <button @click="removeItem(item.id)">Usuń</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
     </div>
 
 
 
+    <div class="b-example-divider"></div>
+
+    <div class="d-flex gap-2 justify-content-center py-5">
+        <div id="app" class="container">
+            <a id="travel-diary"></a>
+            <h3>Dziennik podróży</h3>
+
+            <div class="py-3"></div>
+
+            <form class="needs-validation" v-if="!editingItem" @submit.prevent="addItem">
+                <label for="continent" class="form-label my-1">Kontynent:</label>
+                <select id="continent" class="form-select" v-model="newItem.continent" required>
+                    <option value="Europa">Europa</option>
+                    <option value="Ameryka Północna">Ameryka Północna</option>
+                    <option value="Ameryka Południowa">Ameryka Południowa</option>
+                    <option value="Azja">Azja</option>
+                    <option value="Afryka">Afryka</option>
+                    <option value="Australia">Australia</option>
+                </select>
+                <label for="country" class="form-label my-1">Kraj:</label>
+                <input type="text" id="country" class="form-control" v-model="newItem.country" required>
+                <label for="travelPurpose" class="form-label my-1">Główny Cel Podróży:</label>
+                <select id="travelPurpose" class="form-select" v-model="newItem.travelPurpose" required>
+                    <option value="Biznes">Biznes</option>
+                    <option value="Cena">Cena</option>
+                    <option value="Kuchnia">Kuchnia</option>
+                    <option value="Kultura">Kultura</option>
+                    <option value="Natura">Natura</option>
+                    <option value="Podróż">Podróż</option>
+                    <option value="Przygoda">Przygoda</option>
+                    <option value="Relaks">Relaks</option>
+                </select>
+                <label for="month" class="form-label my-1">Miesiąc:</label>
+                <select id="month" class="form-select" v-model="newItem.month" required>
+                    <option value="Styczeń">Styczeń</option>
+                    <option value="Luty">Luty</option>
+                    <option value="Marzec">Marzec</option>
+                    <option value="Kwiecień">Kwiecień</option>
+                    <option value="Maj">Maj</option>
+                    <option value="Czerwiec">Czerwiec</option>
+                    <option value="Lipiec">Lipiec</option>
+                    <option value="Sierpień">Sierpień</option>
+                    <option value="Wrzesień">Wrzesień</option>
+                    <option value="Październik">Październik</option>
+                    <option value="Listopad">Listopad</option>
+                    <option value="Grudzień">Grudzień</option>
+                </select>
+                <label for="cost" class="form-label my-1">Koszt:</label>
+                <input type="number" id="cost" class="form-control" v-model="newItem.cost" required>
+                <button class="btn btn-primary col-xxl-5 my-5 mx-auto d-grid gap-2" type="submit">Dodaj</button>
+            </form>
+            <form class="needs-validation" v-if="editingItem" @submit.prevent="updateItem">
+                <label for="continent" class="form-label">Kontynent:</label>
+                <select id="continent" class="form-select" v-model="editingItem.continent" required>
+                    <option value="Europa">Europa</option>
+                    <option value="Ameryka Północna">Ameryka Północna</option>
+                    <option value="Ameryka Południowa">Ameryka Południowa</option>
+                    <option value="Azja">Azja</option>
+                    <option value="Afryka">Afryka</option>
+                    <option value="Australia">Australia</option>
+                </select>
+                <label for="country" class="form-label">Kraj:</label>
+                <input type="text" id="country" class="form-control" v-model="editingItem.country" required>
+                <label for="travelPurpose" class="form-label">Główny Cel Podróży:</label>
+                <select id="travelPurpose" class="form-select" v-model="editingItem.travelPurpose" required>
+                    <option value="Biznes">Biznes</option>
+                    <option value="Cena">Cena</option>
+                    <option value="Kuchnia">Kuchnia</option>
+                    <option value="Kultura">Kultura</option>
+                    <option value="Natura">Natura</option>
+                    <option value="Podróż">Podróż</option>
+                    <option value="Przygoda">Przygoda</option>
+                    <option value="Relaks">Relaks</option>
+                </select>
+                <label for="month" class="form-label">Miesiąc:</label>
+                <select id="month" class="form-select" v-model="editingItem.month" required>
+                    <option value="Styczeń">Styczeń</option>
+                    <option value="Luty">Luty</option>
+                    <option value="Marzec">Marzec</option>
+                    <option value="Kwiecień">Kwiecień</option>
+                    <option value="Maj">Maj</option>
+                    <option value="Czerwiec">Czerwiec</option>
+                    <option value="Lipiec">Lipiec</option>
+                    <option value="Sierpień">Sierpień</option>
+                    <option value="Wrzesień">Wrzesień</option>
+                    <option value="Październik">Październik</option>
+                    <option value="Listopad">Listopad</option>
+                    <option value="Grudzień">Grudzień</option>
+                </select>
+                <label for="cost" class="form-label">Koszt:</label>
+                <input type="number" id="cost" class="form-control" v-model="editingItem.cost" required>
+                <button class="btn btn-primary" type="submit">Zapisz</button>
+                <button class="btn btn-secondary" @click="cancelEdit">Anuluj</button>
+            </form>
 
 
 
-</div>
+            <div class="py-1"></div>
 
-<div class="b-example-divider"></div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Kontynent</th>
+                    <th>Kraj</th>
+                    <th>Główny Cel Podróży</th>
+                    <th>Miesiąc</th>
+                    <th>Koszt [PLN]</th>
+                    <th>Edycja</th>
+                    <th>Usuwanie wpisu</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="item in items" :key="item.id">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.continent }}</td>
+                    <td>{{ item.country }}</td>
+                    <td>{{ item.travelPurpose }}</td>
+                    <td>{{ item.month }}</td>
+                    <td>{{ item.cost }}</td>
+                    <td>
+                        <button class="btn btn-primary" @click="editItem(item)">Edytuj</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" @click="removeItem(item.id)">Usuń</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 
-<div class="d-flex gap-2 justify-content-center py-5">
-    <button class="btn btn-primary rounded-pill px-3" type="button">Primary</button>
-    <button class="btn btn-secondary rounded-pill px-3" type="button">Secondary</button>
-    <button class="btn btn-success rounded-pill px-3" type="button">Success</button>
-    <button class="btn btn-danger rounded-pill px-3" type="button">Danger</button>
-    <button class="btn btn-warning rounded-pill px-3" type="button">Warning</button>
-    <button class="btn btn-info rounded-pill px-3" type="button">Info</button>
-    <button class="btn btn-light rounded-pill px-3" type="button">Light</button>
-    <button class="btn btn-dark rounded-pill px-3" type="button">Dark</button>
-    <button class="btn btn-link rounded-pill px-3" type="button">Link</button>
-</div>
 
-<div class="b-example-divider"></div>
+
+
+    <div class="b-example-divider"></div>
+
+
+
+
+
+    <div class="d-flex gap-2 justify-content-center py-5">
+chwilowo place holder
+    </div>
+
+    <div class="b-example-divider"></div>
+
+
+
 </main>
 
 <footer class="footer mt-auto py-3 bg-body-tertiary text-center">
@@ -454,7 +468,7 @@
             newItem: {
                 continent: 'Europa',
                 country: '',
-                travelPurpose: 'Wycieczka turystyczna',
+                travelPurpose: 'Przygoda',
                 month: 'Styczeń',
                 cost: 0
             },
@@ -471,7 +485,7 @@
                 // Znajdź maksymalne id w istniejącej liście
                 const maxId = Math.max(...this.items.map(item => item.id), 0);
                 this.newItem.id = maxId + 1;
-                this.items.push({ ...this.newItem });
+                this.items.push({...this.newItem});
                 this.newItem.country = '';
                 this.newItem.cost = 0;
                 localStorage.setItem('items', JSON.stringify(this.items));
@@ -485,13 +499,13 @@
                 localStorage.setItem('items', JSON.stringify(this.items));
             },
             editItem(item) {
-                this.editingItem = { ...item };
+                this.editingItem = {...item};
             },
             updateItem() {
                 // Znajdź indeks edytowanego elementu
                 const index = this.items.findIndex(item => item.id === this.editingItem.id);
                 if (index !== -1) {
-                    this.items[index] = { ...this.editingItem };
+                    this.items[index] = {...this.editingItem};
                     // Wyczyść pole edycji
                     this.editingItem = null;
                     // Zapisz zmiany w Local Storage
