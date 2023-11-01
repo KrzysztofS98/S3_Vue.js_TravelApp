@@ -9,13 +9,10 @@
     <meta name="author" content="Krzysztof Schwierz">
     <title>Travel app</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/buttons/">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sticky-footer/">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./dist/css/sticky-footer.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/sticky-footer.css" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -159,7 +156,7 @@
 <header>
     <div class="container py-3">
         <div class="d-flex flex-column flex-md-row align-items-center justify-content-between pb-3 mb-4 border-bottom">
-            <a class="d-flex align-items-center link-body-emphasis text-decoration-none">
+            <a class="d-flex align-items-center link-body-emphasis text-decoration-none" href="">
                 <img class="me-3" src="./brand/icons8-location-94.png" alt="" width="40" height="40">
                 <span class="fs-4">Aplikacja podróżnicza</span>
             </a>
@@ -286,16 +283,6 @@
             </div>
         </form>
     </div>
-
-
-    <div class="b-example-divider"></div>
-
-    <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
-        <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="submit">Podaj propozycje</button>
-        </div>
-    </div>
-
 
 
     <div class="b-example-divider"></div>
@@ -432,6 +419,16 @@
 
 
 
+    <div class="b-example-divider"></div>
+
+
+
+
+    <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">place holder</button>
+        </div>
+    </div>
 
 
 
@@ -458,67 +455,9 @@ chwilowo place holder
 </footer>
 
 
-<script src="./dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-<script>
-    new Vue({
-        el: '#app',
-        data: {
-            items: [],
-            newItem: {
-                continent: 'Europa',
-                country: '',
-                travelPurpose: 'Przygoda',
-                month: 'Styczeń',
-                cost: 0
-            },
-            editingItem: null
-        },
-        mounted() {
-            const savedItems = localStorage.getItem('items');
-            if (savedItems) {
-                this.items = JSON.parse(savedItems);
-            }
-        },
-        methods: {
-            addItem() {
-                // Znajdź maksymalne id w istniejącej liście
-                const maxId = Math.max(...this.items.map(item => item.id), 0);
-                this.newItem.id = maxId + 1;
-                this.items.push({...this.newItem});
-                this.newItem.country = '';
-                this.newItem.cost = 0;
-                localStorage.setItem('items', JSON.stringify(this.items));
-            },
-            removeItem(id) {
-                this.items = this.items.filter(item => item.id !== id);
-                // Przesuń id, aby były po kolei
-                this.items.forEach((item, index) => {
-                    item.id = index + 1;
-                });
-                localStorage.setItem('items', JSON.stringify(this.items));
-            },
-            editItem(item) {
-                this.editingItem = {...item};
-            },
-            updateItem() {
-                // Znajdź indeks edytowanego elementu
-                const index = this.items.findIndex(item => item.id === this.editingItem.id);
-                if (index !== -1) {
-                    this.items[index] = {...this.editingItem};
-                    // Wyczyść pole edycji
-                    this.editingItem = null;
-                    // Zapisz zmiany w Local Storage
-                    localStorage.setItem('items', JSON.stringify(this.items));
-                }
-            },
-            cancelEdit() {
-                // Anuluj edycję
-                this.editingItem = null;
-            }
-        }
-    });
-</script>
+<script src="./js/app.js"></script>
 
 
 </body>
