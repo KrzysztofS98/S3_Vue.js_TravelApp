@@ -304,9 +304,14 @@
                     <option value="Afryka">Afryka</option>
                     <option value="Australia">Australia</option>
                 </select>
+
                 <label for="country" class="form-label my-1">Kraj:</label>
                 <input type="text" id="country" class="form-control" v-model="newItem.country" required>
-                <label for="travelPurpose" class="form-label my-1">Główny Cel Podróży:</label>
+                    <!-- Dodaj komunikat o błędzie -->
+<!--                <div v-if="!isCountryValid" class="text-danger">Nazwa kraju nie może zawierać cyfr.</div>-->
+<!--                </div>-->
+
+                <label for="travelPurpose" class="form-label my-1">Cel Podróży:</label>
                 <select id="travelPurpose" class="form-select" v-model="newItem.travelPurpose" required>
                     <option value="Biznes">Biznes</option>
                     <option value="Cena">Cena</option>
@@ -346,9 +351,13 @@
                     <option value="Afryka">Afryka</option>
                     <option value="Australia">Australia</option>
                 </select>
+
+
                 <label for="country" class="form-label">Kraj:</label>
                 <input type="text" id="country" class="form-control" v-model="editingItem.country" required>
-                <label for="travelPurpose" class="form-label">Główny Cel Podróży:</label>
+
+
+                <label for="travelPurpose" class="form-label">Cel Podróży:</label>
                 <select id="travelPurpose" class="form-select" v-model="editingItem.travelPurpose" required>
                     <option value="Biznes">Biznes</option>
                     <option value="Cena">Cena</option>
@@ -390,7 +399,7 @@
                     <th>ID</th>
                     <th>Kontynent</th>
                     <th>Kraj</th>
-                    <th>Główny Cel Podróży</th>
+                    <th>Cel Podróży</th>
                     <th>Miesiąc</th>
                     <th>Koszt [PLN]</th>
                     <th>Edycja</th>
@@ -414,19 +423,8 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
+            <p class="mt-3">Łączny koszt podróży: {{ totalCostComputed }} PLN</p>
 
-
-
-    <div class="b-example-divider"></div>
-
-
-
-
-    <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
-        <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="submit">place holder</button>
         </div>
     </div>
 
@@ -458,7 +456,9 @@ chwilowo place holder
 <script src="./js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 <script src="./js/app.js"></script>
+<script>
 
+</script>
 
 </body>
 </html>

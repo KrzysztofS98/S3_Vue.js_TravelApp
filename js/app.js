@@ -9,8 +9,26 @@ new Vue({
             month: 'Styczeń',
             cost: 0
         },
-        editingItem: null
+        editingItem: null,
+        isCountryValid: true
     },
+    watch: {
+        'newItem.country': function(newVal) {
+            this.isCountryValid = !/\d/.test(newVal); // Sprawdzanie, czy w wartości występują cyfry
+        }
+    },
+
+    computed: {
+        totalCostComputed() {
+            // Ta metoda oblicza łączny koszt i jest używana w szablonie
+            let total = 0;
+            for (const item of this.items) {
+                total += parseFloat(item.cost);
+            }
+            return total; // Zwraca łączny koszt jako wynik
+        }
+    },
+
     mounted() {
         const savedItems = localStorage.getItem('items');
         if (savedItems) {
@@ -20,13 +38,31 @@ new Vue({
     methods: {
         addItem() {
             // Znajdź maksymalne id w istniejącej liście
-            const maxId = Math.max(...this.items.map(item => item.id), 0);
-            this.newItem.id = maxId + 1;
-            this.items.push({...this.newItem});
-            this.newItem.country = '';
-            this.newItem.cost = 0;
-            localStorage.setItem('items', JSON.stringify(this.items));
+        //     const maxId = Math.max(...this.items.map(item => item.id), 0);
+        //     this.newItem.id = maxId + 1;
+        //     this.items.push({...this.newItem});
+        //     this.newItem.country = '';
+        //     this.newItem.cost = 0;
+        //     localStorage.setItem('items', JSON.stringify(this.items));
+
+            if (this.isCountryValid) {
+                // Wykonaj akcje dodawania nowego elementu
+                const maxId = Math.max(...this.items.map(item => item.id), 0);
+                this.newItem.id = maxId + 1;
+                this.items.push({ ...this.newItem });
+                this.newItem.country = '';
+                this.newItem.cost = 0;
+                localStorage.setItem('items', JSON.stringify(this.items));
+            } else {
+                console.log('Nazwa kraju nie może zawierać cyfr.');
+            }
+
+
+
         },
+
+
+
         removeItem(id) {
             this.items = this.items.filter(item => item.id !== id);
             // Przesuń id, aby były po kolei
