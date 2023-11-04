@@ -80,13 +80,13 @@ new Vue({
         },
     },
 
-
     mounted() {
         const savedItems = localStorage.getItem('items');
         if (savedItems) {
             this.items = JSON.parse(savedItems);
         }
     },
+
     methods: {
         addItem() {
               if (this.isCountryValid) {

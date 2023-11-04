@@ -15,24 +15,22 @@
     <link href="./css/sticky-footer.css" rel="stylesheet">
 
     <script src="./js/color-modes.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-    <script src="./js/color-modes.js"></script>
 
 
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+        /*.bd-placeholder-img {*/
+        /*    font-size: 1.125rem;*/
+        /*    text-anchor: middle;*/
+        /*    -webkit-user-select: none;*/
+        /*    -moz-user-select: none;*/
+        /*    user-select: none;*/
+        /*}*/
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
+        /*@media (min-width: 768px) {*/
+        /*    .bd-placeholder-img-lg {*/
+        /*        font-size: 3.5rem;*/
+        /*    }*/
+        /*}*/
 
         .b-divider {
             width: 100%;
@@ -43,34 +41,34 @@
             box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
         }
 
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
+        /*.b-example-vr {*/
+        /*    flex-shrink: 0;*/
+        /*    width: 1.5rem;*/
+        /*    height: 100vh;*/
+        /*}*/
 
         .bi {
             vertical-align: -.125em;
             fill: currentColor;
         }
 
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
+        /*.nav-scroller {*/
+        /*    position: relative;*/
+        /*    z-index: 2;*/
+        /*    height: 2.75rem;*/
+        /*    overflow-y: hidden;*/
+        /*}*/
 
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
+        /*.nav-scroller .nav {*/
+        /*    display: flex;*/
+        /*    flex-wrap: nowrap;*/
+        /*    padding-bottom: 1rem;*/
+        /*    margin-top: -1px;*/
+        /*    overflow-x: auto;*/
+        /*    text-align: center;*/
+        /*    white-space: nowrap;*/
+        /*    -webkit-overflow-scrolling: touch;*/
+        /*}*/
 
         .btn-bd-primary {
             --bd-violet-bg: #712cf9;
@@ -89,9 +87,9 @@
             --bs-btn-active-border-color: #5a23c8;
         }
 
-        .bd-mode-toggle {
-            z-index: 1500;
-        }
+        /*.bd-mode-toggle {*/
+        /*    z-index: 1500;*/
+        /*}*/
 
         .bd-mode-toggle .dropdown-menu .active .bi {
             display: block !important;
@@ -286,8 +284,7 @@
 
             <div class="py-3"></div>    <!--Przerwa między nagłówkiem a formularzem-->
 
-            <!--Formularz - zbieranie danych-->
-
+<!--Formularz - zbieranie danych-->
             <form class="needs-validation" v-if="!editingItem" @submit.prevent="addItem">
                 <template v-for="field in formFields">
                     <label :for="field.key" class="form-label my-1">{{ field.label }}</label>
@@ -303,117 +300,9 @@
                 </template>
                 <button class="btn btn-primary col-xxl-5 my-5 mx-auto d-grid gap-2" type="submit">Dodaj</button>
             </form>
+<!--Koniec formularza - zbieranie danych-->
 
-            <!--            <form class="needs-validation" v-if="!editingItem" @submit.prevent="addItem">-->
-
-            <!--                &lt;!&ndash;Wybór kontynentu z listy rozwijanej&ndash;&gt;-->
-            <!--                <label for="continent" class="form-label my-1">Kontynent:</label>-->
-            <!--                <select id="continent" class="form-select" v-model="newItem.continent" required>-->
-            <!--                    <option value="Europa">Europa</option>-->
-            <!--                    <option value="Ameryka Północna">Ameryka Północna</option>-->
-            <!--                    <option value="Ameryka Południowa">Ameryka Południowa</option>-->
-            <!--                    <option value="Azja">Azja</option>-->
-            <!--                    <option value="Afryka">Afryka</option>-->
-            <!--                    <option value="Australia">Australia</option>-->
-            <!--                </select>-->
-            <!--                &lt;!&ndash;Koniec Wyboru kontynentu z listy rozwijanej&ndash;&gt;-->
-
-            <!--                &lt;!&ndash;Podanie kraju&ndash;&gt;-->
-            <!--                <label for="country" class="form-label my-1">Kraj:</label>-->
-            <!--                <input type="text" id="country" class="form-control" v-model="newItem.country" required>-->
-            <!--                &lt;!&ndash;Koniec podawania kraju&ndash;&gt;-->
-
-            <!--                &lt;!&ndash;Wybór celu podróży&ndash;&gt;-->
-            <!--                <label for="travelPurpose" class="form-label my-1">Cel Podróży:</label>-->
-            <!--                <select id="travelPurpose" class="form-select" required>-->
-            <!--                    <template v-for="field in formFields">-->
-            <!--                        <template v-if="field.key === 'travelPurpose'">-->
-            <!--                            <template v-if="editingItem">-->
-            <!--                                <option v-for="option in field.options" :value="option">{{ option }}</option>-->
-            <!--                            </template>-->
-            <!--                        </template>-->
-            <!--                    </template>-->
-            <!--                </select>-->
-
-            <!--                &lt;!&ndash;Koniec wyboru celu podróży&ndash;&gt;-->
-
-            <!--                &lt;!&ndash;Wybór miesiąca podróży&ndash;&gt;-->
-            <!--                <label for="month" class="form-label my-1">Miesiąc:</label>-->
-            <!--                <select id="month" class="form-select" v-model="newItem.month" required>-->
-            <!--                    <option value="Styczeń">Styczeń</option>-->
-            <!--                    <option value="Luty">Luty</option>-->
-            <!--                    <option value="Marzec">Marzec</option>-->
-            <!--                    <option value="Kwiecień">Kwiecień</option>-->
-            <!--                    <option value="Maj">Maj</option>-->
-            <!--                    <option value="Czerwiec">Czerwiec</option>-->
-            <!--                    <option value="Lipiec">Lipiec</option>-->
-            <!--                    <option value="Sierpień">Sierpień</option>-->
-            <!--                    <option value="Wrzesień">Wrzesień</option>-->
-            <!--                    <option value="Październik">Październik</option>-->
-            <!--                    <option value="Listopad">Listopad</option>-->
-            <!--                    <option value="Grudzień">Grudzień</option>-->
-            <!--                </select>-->
-            <!--                &lt;!&ndash;Koniec wyboru miesiąca podróży&ndash;&gt;-->
-
-            <!--                &lt;!&ndash;Podanie kosztu podróży&ndash;&gt;-->
-            <!--                <label for="cost" class="form-label my-1">Koszt:</label>-->
-            <!--                <input type="number" id="cost" class="form-control" v-model="newItem.cost" required>-->
-            <!--                &lt;!&ndash;Koniec podawania kosztu podróży&ndash;&gt;-->
-
-            <!--                &lt;!&ndash;Przycisk dodawania podróży do bazy&ndash;&gt;-->
-            <!--                <button class="btn btn-primary col-xxl-5 my-5 mx-auto d-grid gap-2" type="submit">Dodaj</button>-->
-            <!--                &lt;!&ndash;Koniec przycisku dodawania podróży do bazy&ndash;&gt;-->
-            <!--            </form> &lt;!&ndash;Koniec formularza - zbieranie danych&ndash;&gt;-->
-
-            <!--Formularz - edycja danych-->
-            <!--            <form class="needs-validation" v-if="editingItem" @submit.prevent="updateItem">-->
-            <!--                <label for="continent" class="form-label">Kontynent:</label>-->
-            <!--                <select id="continent" class="form-select" v-model="editingItem.continent" required>-->
-            <!--                    <option value="Europa">Europa</option>-->
-            <!--                    <option value="Ameryka Północna">Ameryka Północna</option>-->
-            <!--                    <option value="Ameryka Południowa">Ameryka Południowa</option>-->
-            <!--                    <option value="Azja">Azja</option>-->
-            <!--                    <option value="Afryka">Afryka</option>-->
-            <!--                    <option value="Australia">Australia</option>-->
-            <!--                </select>-->
-
-
-            <!--                <label for="country" class="form-label">Kraj:</label>-->
-            <!--                <input type="text" id="country" class="form-control" v-model="editingItem.country" required>-->
-
-
-            <!--                <label for="travelPurpose" class="form-label">Cel Podróży:</label>-->
-            <!--                <select id="travelPurpose" class="form-select" v-model="editingItem.travelPurpose" required>-->
-            <!--                    <option value="Biznes">Biznes</option>-->
-            <!--                    <option value="Cena">Cena</option>-->
-            <!--                    <option value="Kuchnia">Kuchnia</option>-->
-            <!--                    <option value="Kultura">Kultura</option>-->
-            <!--                    <option value="Natura">Natura</option>-->
-            <!--                    <option value="Podróż">Podróż</option>-->
-            <!--                    <option value="Przygoda">Przygoda</option>-->
-            <!--                    <option value="Relaks">Relaks</option>-->
-            <!--                </select>-->
-            <!--                <label for="month" class="form-label">Miesiąc:</label>-->
-            <!--                <select id="month" class="form-select" v-model="editingItem.month" required>-->
-            <!--                    <option value="Styczeń">Styczeń</option>-->
-            <!--                    <option value="Luty">Luty</option>-->
-            <!--                    <option value="Marzec">Marzec</option>-->
-            <!--                    <option value="Kwiecień">Kwiecień</option>-->
-            <!--                    <option value="Maj">Maj</option>-->
-            <!--                    <option value="Czerwiec">Czerwiec</option>-->
-            <!--                    <option value="Lipiec">Lipiec</option>-->
-            <!--                    <option value="Sierpień">Sierpień</option>-->
-            <!--                    <option value="Wrzesień">Wrzesień</option>-->
-            <!--                    <option value="Październik">Październik</option>-->
-            <!--                    <option value="Listopad">Listopad</option>-->
-            <!--                    <option value="Grudzień">Grudzień</option>-->
-            <!--                </select>-->
-            <!--                <label for="cost" class="form-label">Koszt:</label>-->
-            <!--                <input type="number" id="cost" class="form-control" v-model="editingItem.cost" required>-->
-            <!--                <button class="btn btn-primary" type="submit">Zapisz</button>-->
-            <!--                <button class="btn btn-secondary" @click="cancelEdit">Anuluj</button>-->
-            <!--            </form> &lt;!&ndash;Koniec formularza - edycja danych&ndash;&gt;-->
-
+<!--Formularz - edycja danych-->
             <form class="needs-validation" v-if="editingItem" @submit.prevent="updateItem">
                 <template v-for="field in formFields">
                     <label :for="field.key" class="form-label">{{ field.label }}</label>
@@ -431,6 +320,7 @@
                 <button class="btn btn-primary mt-3" type="submit">Zapisz</button>
                 <button class="btn btn-secondary mt-3" @click="cancelEdit">Anuluj</button>
             </form>
+<!--Koniec formularza - edycja danych-->
 
 
             <div class="py-1"></div>    <!--Przerwa między formularzem a tabelą-->
