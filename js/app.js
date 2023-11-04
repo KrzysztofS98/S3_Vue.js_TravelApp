@@ -1,5 +1,40 @@
 new Vue({
+    el: '#app_head', // Wybierz element HTML, do którego chcesz dołączyć Vue.js
+    data: {
+        message: 'Witamy Cię w aplikacji podróżniczej. W pierwszej sekcji po podaniu nam\n' +
+            '    kilku danych zaproponujemy Ci miejsce na twoją kolejną podróż. W drugiej sekcji aplikacji możesz zapisać\n' +
+            '    swoje podróże, a aplikacja przechowa o nich dane i podliczy twoje koszty za podróże.',
+    }
+});
+
+
+new Vue({
     el: '#app',
+    data: {
+        firstName: '',
+        email: '',
+        username: '',
+        country: '',
+        travelPurpose: '',
+        month: '',
+        privacyAccepted: false
+    },
+    methods: {
+        submitForm: function () {
+            if (this.privacyAccepted) {
+                // Obsłuż wysyłanie formularza
+            } else {
+                // Wyświetl informację o akceptacji polityki prywatności
+                alert('Proszę zaakceptować politykę prywatności.');
+            }
+        }
+    }
+});
+
+
+
+new Vue({
+    el: '#app2',
     data: {
         items: [],
         newItem: {
@@ -20,14 +55,14 @@ new Vue({
 
     computed: {
         totalCostComputed() {
-            // Ta metoda oblicza łączny koszt i jest używana w szablonie
             let total = 0;
             for (const item of this.items) {
                 total += parseFloat(item.cost);
             }
-            return total; // Zwraca łączny koszt jako wynik
-        }
+            return total; // Zwracamy łączny koszt jako wynik
+        },
     },
+
 
     mounted() {
         const savedItems = localStorage.getItem('items');
@@ -37,15 +72,7 @@ new Vue({
     },
     methods: {
         addItem() {
-            // Znajdź maksymalne id w istniejącej liście
-        //     const maxId = Math.max(...this.items.map(item => item.id), 0);
-        //     this.newItem.id = maxId + 1;
-        //     this.items.push({...this.newItem});
-        //     this.newItem.country = '';
-        //     this.newItem.cost = 0;
-        //     localStorage.setItem('items', JSON.stringify(this.items));
-
-            if (this.isCountryValid) {
+              if (this.isCountryValid) {
                 // Wykonaj akcje dodawania nowego elementu
                 const maxId = Math.max(...this.items.map(item => item.id), 0);
                 this.newItem.id = maxId + 1;
@@ -54,14 +81,9 @@ new Vue({
                 this.newItem.cost = 0;
                 localStorage.setItem('items', JSON.stringify(this.items));
             } else {
-                console.log('Nazwa kraju nie może zawierać cyfr.');
+                alert('Nazwa kraju nie może zawierać cyfr.');
             }
-
-
-
         },
-
-
 
         removeItem(id) {
             this.items = this.items.filter(item => item.id !== id);
@@ -71,20 +93,23 @@ new Vue({
             });
             localStorage.setItem('items', JSON.stringify(this.items));
         },
+
         editItem(item) {
             this.editingItem = {...item};
         },
+
         updateItem() {
             // Znajdź indeks edytowanego elementu
             const index = this.items.findIndex(item => item.id === this.editingItem.id);
             if (index !== -1) {
-                this.items[index] = {...this.editingItem};
+                this.$set(this.items, index, {...this.editingItem});
                 // Wyczyść pole edycji
                 this.editingItem = null;
                 // Zapisz zmiany w Local Storage
                 localStorage.setItem('items', JSON.stringify(this.items));
             }
         },
+
         cancelEdit() {
             // Anuluj edycję
             this.editingItem = null;
