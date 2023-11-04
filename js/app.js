@@ -15,16 +15,25 @@ new Vue({
         email: '',
         username: '',
         country: '',
-        travelPurpose: '',
-        month: '',
-        privacyAccepted: false
+        preferedMonth: '',
+        travelPurpose1: '',
+        travelPurpose2: '',
+        privacyAccepted: false,
+        showRecommendation: false,
+        travelPurposeOptions: ["Cena", "Kuchnia", "Kultura", "Natura", "Podróż", "Przygoda", "Relaks"],
+        monthOptions: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec",
+            "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"]
+    },
+    computed: {
+        isWinter: function () {
+            return ['Styczeń', 'Luty', 'Listopad', 'Grudzień'].includes(this.preferedMonth);
+        }
     },
     methods: {
         submitForm: function () {
             if (this.privacyAccepted) {
-                // Obsłuż wysyłanie formularza
+                this.showRecommendation = true;
             } else {
-                // Wyświetl informację o akceptacji polityki prywatności
                 alert('Proszę zaakceptować politykę prywatności.');
             }
         }
@@ -33,9 +42,17 @@ new Vue({
 
 
 
+
 new Vue({
     el: '#app2',
     data: {
+        formFields: [
+            { key: 'continent', label: 'Kontynent', type: 'select', options: ["Europa", "Ameryka Północna", "Ameryka Południowa", "Azja", "Afryka", "Australia"] },
+            { key: 'country', label: 'Kraj', type: 'text' },
+            { key: 'travelPurpose', label: 'Cel Podróży', type: 'select', options: ["Biznes", "Cena", "Kuchnia", "Kultura", "Natura", "Podróż", "Przygoda", "Relaks"] },
+            { key: 'month', label: 'Miesiąc', type: 'select', options: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"] },
+            { key: 'cost', label: 'Koszt', type: 'number' },
+        ],
         items: [],
         newItem: {
             continent: 'Europa',

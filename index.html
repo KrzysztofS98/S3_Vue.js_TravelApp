@@ -160,7 +160,8 @@
 
 <header>   <!--Nagłówek-->
     <div class="container py-3">    <!--Kontener na header-->
-        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between pb-3 mb-4 border-bottom"> <!--Nawigacja-->
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between pb-3 mb-4 border-bottom">
+            <!--Nawigacja-->
             <a class="d-flex align-items-center link-body-emphasis text-decoration-none" href="">
                 <img class="me-3" src="./brand/icons8-location-94.png" alt="" width="40" height="40">
                 <span class="fs-4">Aplikacja podróżnicza</span>
@@ -189,21 +190,23 @@
 
         <div id="app">  <!--Sekcja odpowiedzialna za formularz z propozycjami-->
 
-            <form class="needs-validation" @submit="submitForm">
 
+            <form class="needs-validation" @submit.prevent="submitForm">
                 <div class="row g-3">
+
                     <a id="recomended-destinations"></a>
                     <h3 class="mb-1">Preferencje</h3>
 
                     <div class="col-sm-6">
                         <label for="firstName" class="form-label">Imię</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                        <input type="text" class="form-control" id="firstName" placeholder="" v-model="firstName"
+                               required>
 
                     </div>
 
                     <div class="col-sm-6">
                         <label for="email" class="form-label">E-Mail</label>
-                        <input type="text" class="form-control" id="email" placeholder="" value="" required>
+                        <input type="text" class="form-control" id="email" placeholder="" v-model="email" required>
                     </div>
 
                     <div class="col-12">
@@ -213,26 +216,15 @@
                         <div class="input-group">
                             <span class="input-group-text">@</span>
                             <input type="text" class="form-control" id="username"
-                                   placeholder="Nazwa użytkownika (niewymagana)">
+                                   placeholder="Nazwa użytkownika (niewymagana)" v-model="username">
 
                         </div>
 
                         <div class="col-12">
-                            <label for="country" class="form-label">Preferowany miesiąc podróży</label>
-                            <select class="form-select" id="country" required>
+                            <label for="preferedMonth" class="form-label my-1">Preferowany miesiąc podróży</label>
+                            <select class="form-select" id="preferedMonth" v-model="preferedMonth" required>
                                 <option value="">Wybierz miesiąc...</option>
-                                <option>Styczeń</option>
-                                <option>Luty</option>
-                                <option>Marzec</option>
-                                <option>Kwiecień</option>
-                                <option>Maj</option>
-                                <option>Czerwiec</option>
-                                <option>Lipiec</option>
-                                <option>Sierpień</option>
-                                <option>Wrzesień</option>
-                                <option>Październik</option>
-                                <option>Listopad</option>
-                                <option>Grudzień</option>
+                                <option v-for="option in monthOptions" :value="option">{{ option }}</option>
                             </select>
                             <div class="invalid-feedback">
                                 Proszę wybierz właściwy miesiąc.
@@ -240,16 +232,10 @@
                         </div>
 
                         <div class="col-12">
-                            <label for="state" class="form-label">Główny cel podróży</label>
-                            <select class="form-select" id="state" required>
+                            <label for="state" class="form-label my-1">Główny cel podróży</label>
+                            <select class="form-select" id="state" v-model="travelPurpose1" required>
                                 <option value="">Wybierz główny cel podróży...</option>
-                                <option>Cena</option>
-                                <option>Kuchnia</option>
-                                <option>Kultura</option>
-                                <option>Natura</option>
-                                <option>Podróż</option>
-                                <option>Przygoda</option>
-                                <option>Relaks</option>
+                                <option v-for="option in travelPurposeOptions" :value="option">{{ option }}</option>
                             </select>
                             <div class="invalid-feedback">
                                 Wymagane podanie celu podróży.
@@ -257,18 +243,11 @@
                         </div>
 
                         <div class="col-12">
-                            <label for="zip" class="form-label">Dodatkowy cel podróży</label>
+                            <label for="zip" class="form-label my-1">Dodatkowy cel podróży</label>
 
-                            <select class="form-select" id="zip" required>
+                            <select class="form-select" id="zip" v-model="travelPurpose2" required>
                                 <option value="">Wybierz dodatkowy cel podróży...</option>
-                                <option value="">Wybierz główny cel podróży...</option>
-                                <option>Cena</option>
-                                <option>Kuchnia</option>
-                                <option>Kultura</option>
-                                <option>Natura</option>
-                                <option>Podróż</option>
-                                <option>Przygoda</option>
-                                <option>Relaks</option>
+                                <option v-for="option in travelPurposeOptions" :value="option">{{ option }}</option>
                             </select>
                             <div class="invalid-feedback">
                                 Wymagane wybranie celu podróży.
@@ -282,16 +261,24 @@
                         <label class="form-check-label" for="privacy-accept">Akceptuję politykę prywatności</label>
                     </div>
                     <button class="btn btn-primary" type="submit">Zaproponuj destynacje</button>
-
                 </div>
+
             </form>
+
+            <div v-if="showRecommendation" class="mt-3">
+                <p>Na podstawie Twoich wymagań polecamy:</p>
+                <p v-if="isWinter">Wycieczkę na Maderę.</p>
+                <p v-else>Wycieczkę w Bieszczady.</p>
+            </div>
+
+
         </div>  <!--Koniec sekcji odpowiedzialnej za formularz z propozycjami-->
     </div>
 
 
     <div class="b-divider"></div>
 
-<!--Sekcja odpowiedzialna za dziennik podróżniczy-->
+    <!--Sekcja odpowiedzialna za dziennik podróżniczy-->
     <div class="d-flex gap-2 justify-content-center py-5">
         <div id="app2" class="container">
             <a id="travel-diary"></a>
@@ -300,115 +287,150 @@
             <div class="py-3"></div>    <!--Przerwa między nagłówkiem a formularzem-->
 
             <!--Formularz - zbieranie danych-->
+
             <form class="needs-validation" v-if="!editingItem" @submit.prevent="addItem">
-
-                <!--Wybór kontynentu z listy rozwijanej-->
-                <label for="continent" class="form-label my-1">Kontynent:</label>
-                <select id="continent" class="form-select" v-model="newItem.continent" required>
-                    <option value="Europa">Europa</option>
-                    <option value="Ameryka Północna">Ameryka Północna</option>
-                    <option value="Ameryka Południowa">Ameryka Południowa</option>
-                    <option value="Azja">Azja</option>
-                    <option value="Afryka">Afryka</option>
-                    <option value="Australia">Australia</option>
-                </select>
-                <!--Koniec Wyboru kontynentu z listy rozwijanej-->
-
-                <!--Podanie kraju-->
-                <label for="country" class="form-label my-1">Kraj:</label>
-                <input type="text" id="country" class="form-control" v-model="newItem.country" required>
-                <!--Koniec podawania kraju-->
-
-                <!--Wybór celu podróży-->
-                <label for="travelPurpose" class="form-label my-1">Cel Podróży:</label>
-                <select id="travelPurpose" class="form-select" v-model="newItem.travelPurpose" required>
-                    <option value="Biznes">Biznes</option>
-                    <option value="Cena">Cena</option>
-                    <option value="Kuchnia">Kuchnia</option>
-                    <option value="Kultura">Kultura</option>
-                    <option value="Natura">Natura</option>
-                    <option value="Podróż">Podróż</option>
-                    <option value="Przygoda">Przygoda</option>
-                    <option value="Relaks">Relaks</option>
-                </select>
-                <!--Koniec wyboru celu podróży-->
-
-                <!--Wybór miesiąca podróży-->
-                <label for="month" class="form-label my-1">Miesiąc:</label>
-                <select id="month" class="form-select" v-model="newItem.month" required>
-                    <option value="Styczeń">Styczeń</option>
-                    <option value="Luty">Luty</option>
-                    <option value="Marzec">Marzec</option>
-                    <option value="Kwiecień">Kwiecień</option>
-                    <option value="Maj">Maj</option>
-                    <option value="Czerwiec">Czerwiec</option>
-                    <option value="Lipiec">Lipiec</option>
-                    <option value="Sierpień">Sierpień</option>
-                    <option value="Wrzesień">Wrzesień</option>
-                    <option value="Październik">Październik</option>
-                    <option value="Listopad">Listopad</option>
-                    <option value="Grudzień">Grudzień</option>
-                </select>
-                <!--Koniec wyboru miesiąca podróży-->
-
-                <!--Podanie kosztu podróży-->
-                <label for="cost" class="form-label my-1">Koszt:</label>
-                <input type="number" id="cost" class="form-control" v-model="newItem.cost" required>
-                <!--Koniec podawania kosztu podróży-->
-
-                <!--Przycisk dodawania podróży do bazy-->
+                <template v-for="field in formFields">
+                    <label :for="field.key" class="form-label my-1">{{ field.label }}</label>
+                    <template v-if="field.type === 'select'">
+                        <select :id="field.key" class="form-select" v-model="newItem[field.key]" required>
+                            <option v-for="option in field.options" :value="option">{{ option }}</option>
+                        </select>
+                    </template>
+                    <template v-else>
+                        <input :id="field.key" :type="field.key === 'cost' ? 'number' : 'text'" class="form-control"
+                               v-model="newItem[field.key]" required>
+                    </template>
+                </template>
                 <button class="btn btn-primary col-xxl-5 my-5 mx-auto d-grid gap-2" type="submit">Dodaj</button>
-                <!--Koniec przycisku dodawania podróży do bazy-->
-            </form> <!--Koniec formularza - zbieranie danych-->
+            </form>
+
+            <!--            <form class="needs-validation" v-if="!editingItem" @submit.prevent="addItem">-->
+
+            <!--                &lt;!&ndash;Wybór kontynentu z listy rozwijanej&ndash;&gt;-->
+            <!--                <label for="continent" class="form-label my-1">Kontynent:</label>-->
+            <!--                <select id="continent" class="form-select" v-model="newItem.continent" required>-->
+            <!--                    <option value="Europa">Europa</option>-->
+            <!--                    <option value="Ameryka Północna">Ameryka Północna</option>-->
+            <!--                    <option value="Ameryka Południowa">Ameryka Południowa</option>-->
+            <!--                    <option value="Azja">Azja</option>-->
+            <!--                    <option value="Afryka">Afryka</option>-->
+            <!--                    <option value="Australia">Australia</option>-->
+            <!--                </select>-->
+            <!--                &lt;!&ndash;Koniec Wyboru kontynentu z listy rozwijanej&ndash;&gt;-->
+
+            <!--                &lt;!&ndash;Podanie kraju&ndash;&gt;-->
+            <!--                <label for="country" class="form-label my-1">Kraj:</label>-->
+            <!--                <input type="text" id="country" class="form-control" v-model="newItem.country" required>-->
+            <!--                &lt;!&ndash;Koniec podawania kraju&ndash;&gt;-->
+
+            <!--                &lt;!&ndash;Wybór celu podróży&ndash;&gt;-->
+            <!--                <label for="travelPurpose" class="form-label my-1">Cel Podróży:</label>-->
+            <!--                <select id="travelPurpose" class="form-select" required>-->
+            <!--                    <template v-for="field in formFields">-->
+            <!--                        <template v-if="field.key === 'travelPurpose'">-->
+            <!--                            <template v-if="editingItem">-->
+            <!--                                <option v-for="option in field.options" :value="option">{{ option }}</option>-->
+            <!--                            </template>-->
+            <!--                        </template>-->
+            <!--                    </template>-->
+            <!--                </select>-->
+
+            <!--                &lt;!&ndash;Koniec wyboru celu podróży&ndash;&gt;-->
+
+            <!--                &lt;!&ndash;Wybór miesiąca podróży&ndash;&gt;-->
+            <!--                <label for="month" class="form-label my-1">Miesiąc:</label>-->
+            <!--                <select id="month" class="form-select" v-model="newItem.month" required>-->
+            <!--                    <option value="Styczeń">Styczeń</option>-->
+            <!--                    <option value="Luty">Luty</option>-->
+            <!--                    <option value="Marzec">Marzec</option>-->
+            <!--                    <option value="Kwiecień">Kwiecień</option>-->
+            <!--                    <option value="Maj">Maj</option>-->
+            <!--                    <option value="Czerwiec">Czerwiec</option>-->
+            <!--                    <option value="Lipiec">Lipiec</option>-->
+            <!--                    <option value="Sierpień">Sierpień</option>-->
+            <!--                    <option value="Wrzesień">Wrzesień</option>-->
+            <!--                    <option value="Październik">Październik</option>-->
+            <!--                    <option value="Listopad">Listopad</option>-->
+            <!--                    <option value="Grudzień">Grudzień</option>-->
+            <!--                </select>-->
+            <!--                &lt;!&ndash;Koniec wyboru miesiąca podróży&ndash;&gt;-->
+
+            <!--                &lt;!&ndash;Podanie kosztu podróży&ndash;&gt;-->
+            <!--                <label for="cost" class="form-label my-1">Koszt:</label>-->
+            <!--                <input type="number" id="cost" class="form-control" v-model="newItem.cost" required>-->
+            <!--                &lt;!&ndash;Koniec podawania kosztu podróży&ndash;&gt;-->
+
+            <!--                &lt;!&ndash;Przycisk dodawania podróży do bazy&ndash;&gt;-->
+            <!--                <button class="btn btn-primary col-xxl-5 my-5 mx-auto d-grid gap-2" type="submit">Dodaj</button>-->
+            <!--                &lt;!&ndash;Koniec przycisku dodawania podróży do bazy&ndash;&gt;-->
+            <!--            </form> &lt;!&ndash;Koniec formularza - zbieranie danych&ndash;&gt;-->
 
             <!--Formularz - edycja danych-->
+            <!--            <form class="needs-validation" v-if="editingItem" @submit.prevent="updateItem">-->
+            <!--                <label for="continent" class="form-label">Kontynent:</label>-->
+            <!--                <select id="continent" class="form-select" v-model="editingItem.continent" required>-->
+            <!--                    <option value="Europa">Europa</option>-->
+            <!--                    <option value="Ameryka Północna">Ameryka Północna</option>-->
+            <!--                    <option value="Ameryka Południowa">Ameryka Południowa</option>-->
+            <!--                    <option value="Azja">Azja</option>-->
+            <!--                    <option value="Afryka">Afryka</option>-->
+            <!--                    <option value="Australia">Australia</option>-->
+            <!--                </select>-->
+
+
+            <!--                <label for="country" class="form-label">Kraj:</label>-->
+            <!--                <input type="text" id="country" class="form-control" v-model="editingItem.country" required>-->
+
+
+            <!--                <label for="travelPurpose" class="form-label">Cel Podróży:</label>-->
+            <!--                <select id="travelPurpose" class="form-select" v-model="editingItem.travelPurpose" required>-->
+            <!--                    <option value="Biznes">Biznes</option>-->
+            <!--                    <option value="Cena">Cena</option>-->
+            <!--                    <option value="Kuchnia">Kuchnia</option>-->
+            <!--                    <option value="Kultura">Kultura</option>-->
+            <!--                    <option value="Natura">Natura</option>-->
+            <!--                    <option value="Podróż">Podróż</option>-->
+            <!--                    <option value="Przygoda">Przygoda</option>-->
+            <!--                    <option value="Relaks">Relaks</option>-->
+            <!--                </select>-->
+            <!--                <label for="month" class="form-label">Miesiąc:</label>-->
+            <!--                <select id="month" class="form-select" v-model="editingItem.month" required>-->
+            <!--                    <option value="Styczeń">Styczeń</option>-->
+            <!--                    <option value="Luty">Luty</option>-->
+            <!--                    <option value="Marzec">Marzec</option>-->
+            <!--                    <option value="Kwiecień">Kwiecień</option>-->
+            <!--                    <option value="Maj">Maj</option>-->
+            <!--                    <option value="Czerwiec">Czerwiec</option>-->
+            <!--                    <option value="Lipiec">Lipiec</option>-->
+            <!--                    <option value="Sierpień">Sierpień</option>-->
+            <!--                    <option value="Wrzesień">Wrzesień</option>-->
+            <!--                    <option value="Październik">Październik</option>-->
+            <!--                    <option value="Listopad">Listopad</option>-->
+            <!--                    <option value="Grudzień">Grudzień</option>-->
+            <!--                </select>-->
+            <!--                <label for="cost" class="form-label">Koszt:</label>-->
+            <!--                <input type="number" id="cost" class="form-control" v-model="editingItem.cost" required>-->
+            <!--                <button class="btn btn-primary" type="submit">Zapisz</button>-->
+            <!--                <button class="btn btn-secondary" @click="cancelEdit">Anuluj</button>-->
+            <!--            </form> &lt;!&ndash;Koniec formularza - edycja danych&ndash;&gt;-->
+
             <form class="needs-validation" v-if="editingItem" @submit.prevent="updateItem">
-                <label for="continent" class="form-label">Kontynent:</label>
-                <select id="continent" class="form-select" v-model="editingItem.continent" required>
-                    <option value="Europa">Europa</option>
-                    <option value="Ameryka Północna">Ameryka Północna</option>
-                    <option value="Ameryka Południowa">Ameryka Południowa</option>
-                    <option value="Azja">Azja</option>
-                    <option value="Afryka">Afryka</option>
-                    <option value="Australia">Australia</option>
-                </select>
+                <template v-for="field in formFields">
+                    <label :for="field.key" class="form-label">{{ field.label }}</label>
+                    <template v-if="field.type === 'select'">
+                        <select :id="field.key" class="form-select" v-model="editingItem[field.key]" required>
+                            <option v-for="option in field.options" :value="option">{{ option }}</option>
+                        </select>
+                    </template>
+                    <template v-else>
+                        <input :id="field.key" :type="field.key === 'cost' ? 'number' : 'text'" class="form-control"
+                               v-model="editingItem[field.key]" required>
+                    </template>
+                </template>
 
-
-                <label for="country" class="form-label">Kraj:</label>
-                <input type="text" id="country" class="form-control" v-model="editingItem.country" required>
-
-
-                <label for="travelPurpose" class="form-label">Cel Podróży:</label>
-                <select id="travelPurpose" class="form-select" v-model="editingItem.travelPurpose" required>
-                    <option value="Biznes">Biznes</option>
-                    <option value="Cena">Cena</option>
-                    <option value="Kuchnia">Kuchnia</option>
-                    <option value="Kultura">Kultura</option>
-                    <option value="Natura">Natura</option>
-                    <option value="Podróż">Podróż</option>
-                    <option value="Przygoda">Przygoda</option>
-                    <option value="Relaks">Relaks</option>
-                </select>
-                <label for="month" class="form-label">Miesiąc:</label>
-                <select id="month" class="form-select" v-model="editingItem.month" required>
-                    <option value="Styczeń">Styczeń</option>
-                    <option value="Luty">Luty</option>
-                    <option value="Marzec">Marzec</option>
-                    <option value="Kwiecień">Kwiecień</option>
-                    <option value="Maj">Maj</option>
-                    <option value="Czerwiec">Czerwiec</option>
-                    <option value="Lipiec">Lipiec</option>
-                    <option value="Sierpień">Sierpień</option>
-                    <option value="Wrzesień">Wrzesień</option>
-                    <option value="Październik">Październik</option>
-                    <option value="Listopad">Listopad</option>
-                    <option value="Grudzień">Grudzień</option>
-                </select>
-                <label for="cost" class="form-label">Koszt:</label>
-                <input type="number" id="cost" class="form-control" v-model="editingItem.cost" required>
-                <button class="btn btn-primary" type="submit">Zapisz</button>
-                <button class="btn btn-secondary" @click="cancelEdit">Anuluj</button>
-            </form> <!--Koniec formularza - edycja danych-->
+                <button class="btn btn-primary mt-3" type="submit">Zapisz</button>
+                <button class="btn btn-secondary mt-3" @click="cancelEdit">Anuluj</button>
+            </form>
 
 
             <div class="py-1"></div>    <!--Przerwa między formularzem a tabelą-->
@@ -449,8 +471,7 @@
 
         </div>
     </div>
-<!--Koniec sekcji odpowiedzialnej za dziennik podróżniczy-->
-
+    <!--Koniec sekcji odpowiedzialnej za dziennik podróżniczy-->
 
 
 </main> <!--Koniec głównej części strony-->
