@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 <head>
-    <script src="./js/color-modes.js"></script>
+
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,22 +14,25 @@
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/sticky-footer.css" rel="stylesheet">
 
+    <script src="./js/color-modes.js"></script>
+
+
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+        /*.bd-placeholder-img {*/
+        /*    font-size: 1.125rem;*/
+        /*    text-anchor: middle;*/
+        /*    -webkit-user-select: none;*/
+        /*    -moz-user-select: none;*/
+        /*    user-select: none;*/
+        /*}*/
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
+        /*@media (min-width: 768px) {*/
+        /*    .bd-placeholder-img-lg {*/
+        /*        font-size: 3.5rem;*/
+        /*    }*/
+        /*}*/
 
-        .b-example-divider {
+        .b-divider {
             width: 100%;
             height: 1rem;
             background-color: rgba(0, 0, 0, .1);
@@ -38,34 +41,28 @@
             box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
         }
 
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
-
         .bi {
             vertical-align: -.125em;
             fill: currentColor;
         }
 
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
+        /*.nav-scroller {*/
+        /*    position: relative;*/
+        /*    z-index: 2;*/
+        /*    height: 2.75rem;*/
+        /*    overflow-y: hidden;*/
+        /*}*/
 
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
+        /*.nav-scroller .nav {*/
+        /*    display: flex;*/
+        /*    flex-wrap: nowrap;*/
+        /*    padding-bottom: 1rem;*/
+        /*    margin-top: -1px;*/
+        /*    overflow-x: auto;*/
+        /*    text-align: center;*/
+        /*    white-space: nowrap;*/
+        /*    -webkit-overflow-scrolling: touch;*/
+        /*}*/
 
         .btn-bd-primary {
             --bd-violet-bg: #712cf9;
@@ -84,9 +81,9 @@
             --bs-btn-active-border-color: #5a23c8;
         }
 
-        .bd-mode-toggle {
-            z-index: 1500;
-        }
+        /*.bd-mode-toggle {*/
+        /*    z-index: 1500;*/
+        /*}*/
 
         .bd-mode-toggle .dropdown-menu .active .bi {
             display: block !important;
@@ -153,247 +150,176 @@
 <!--Koniec sekcji odpowiedzialnej za dark theme-->
 
 
-<header>
-    <div class="container py-3">
+<header>   <!--Nagłówek-->
+    <div class="container py-3">    <!--Kontener na header-->
         <div class="d-flex flex-column flex-md-row align-items-center justify-content-between pb-3 mb-4 border-bottom">
+            <!--Nawigacja-->
             <a class="d-flex align-items-center link-body-emphasis text-decoration-none" href="">
                 <img class="me-3" src="./brand/icons8-location-94.png" alt="" width="40" height="40">
                 <span class="fs-4">Aplikacja podróżnicza</span>
             </a>
 
-            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#recomended-destinations">Propozycje destynacji</a>
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto"> <!--Nawigacja-->
+                <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#recomended-destinations">Propozycje
+                    destynacji</a>
                 <a class="py-2 link-body-emphasis text-decoration-none" href="#travel-diary">Dziennik podróży</a>
-            </nav>
+            </nav>  <!--Koniec nawigacji-->
+        </div>  <!--Koniec nawigacji-->
+
+        <div id="app_head" class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis">Cześć!</h1>
+            <p class="fs-5 text-body-secondary">{{ message }}</p>
         </div>
 
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-            <h1 class="display-4 fw-normal text-body-emphasis">Cześć!</h1>
-            <p class="fs-5 text-body-secondary">Witamy Cię w asystencie planowania twojej kolejnej podróży. Podaj nam
-                odpowidzi na nasze
-                pytania z formularza poniżej, a postaramy się zaproponować destynację twojej kolejnej podróży
-                odpowiadającą twoim wymaganiom.</p>
-        </div>
-    </div>
+    </div> <!--Koniec kontenera na header-->
 </header>
 
-<main>
+<main>  <!--Główna część strony-->
 
-
-    <div class="b-example-divider"></div>
+    <div class="b-divider"></div>
 
     <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
 
-        <form class="needs-validation">
+        <div id="app">  <!--Sekcja odpowiedzialna za formularz z propozycjami-->
 
-            <div class="row g-3">
-                <a id="recomended-destinations"></a>
-                <h3 class="mb-1">Preferencje</h3>
 
-                <div class="col-sm-6">
-                    <label for="firstName" class="form-label">Imię</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <form class="needs-validation" @submit.prevent="submitForm">
+                <div class="row g-3">
 
-                </div>
+                    <a id="recomended-destinations"></a>
+                    <h3 class="mb-1">Preferencje</h3>
 
-                <div class="col-sm-6">
-                    <label for="email" class="form-label">E-Mail</label>
-                    <input type="text" class="form-control" id="email" placeholder="" value="" required>
-                </div>
-
-                <div class="col-12">
-                    <label for="username" class="form-label">Nazwa w instagram (Funkcjonalność testowa, dla przyszłych
-                        rozwiązań z AI)</label>
-                    <div class="input-group">
-                        <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" id="username"
-                               placeholder="Nazwa użytkownika (niewymagana)">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">Imię</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="" v-model="firstName"
+                               required>
 
                     </div>
 
-                    <!--                <hr class="mt-4">-->
-
-
-                    <div class="col-12">
-                        <label for="country" class="form-label">Preferowany miesiąc podróży</label>
-                        <select class="form-select" id="country" required>
-                            <option value="">Wybierz miesiąc...</option>
-                            <option>Styczeń</option>
-                            <option>Luty</option>
-                            <option>Marzec</option>
-                            <option>Kwiecień</option>
-                            <option>Maj</option>
-                            <option>Czerwiec</option>
-                            <option>Lipiec</option>
-                            <option>Sierpień</option>
-                            <option>Wrzesień</option>
-                            <option>Październik</option>
-                            <option>Listopad</option>
-                            <option>Grudzień</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Proszę wybierz właściwy miesiąc.
-                        </div>
+                    <div class="col-sm-6">
+                        <label for="email" class="form-label">E-Mail</label>
+                        <input type="text" class="form-control" id="email" placeholder="" v-model="email" required>
                     </div>
 
                     <div class="col-12">
-                        <label for="state" class="form-label">Główny cel podróży</label>
-                        <select class="form-select" id="state" required>
-                            <option value="">Wybierz główny cel podróży...</option>
-                            <option>Cena</option>
-                            <option>Kuchnia</option>
-                            <option>Kultura</option>
-                            <option>Natura</option>
-                            <option>Podróż</option>
-                            <option>Przygoda</option>
-                            <option>Relaks</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Wymagane podanie celu podróży.
+                        <label for="username" class="form-label">Nazwa w instagram (Funkcjonalność testowa, dla
+                            przyszłych
+                            rozwiązań z AI)</label>
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" id="username"
+                                   placeholder="Nazwa użytkownika (niewymagana)" v-model="username">
+
+                        </div>
+
+                        <div class="col-12">
+                            <label for="preferedMonth" class="form-label my-1">Preferowany miesiąc podróży</label>
+                            <select class="form-select" id="preferedMonth" v-model="preferedMonth" required>
+                                <option value="">Wybierz miesiąc...</option>
+                                <option v-for="option in monthOptions" :value="option">{{ option }}</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Proszę wybierz właściwy miesiąc.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="state" class="form-label my-1">Główny cel podróży</label>
+                            <select class="form-select" id="state" v-model="travelPurpose1" required>
+                                <option value="">Wybierz główny cel podróży...</option>
+                                <option v-for="option in travelPurposeOptions" :value="option">{{ option }}</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Wymagane podanie celu podróży.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="zip" class="form-label my-1">Dodatkowy cel podróży</label>
+
+                            <select class="form-select" id="zip" v-model="travelPurpose2" required>
+                                <option value="">Wybierz dodatkowy cel podróży...</option>
+                                <option v-for="option in travelPurposeOptions" :value="option">{{ option }}</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Wymagane wybranie celu podróży.
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-12">
-                        <label for="zip" class="form-label">Dodatkowy cel podróży</label>
 
-                        <select class="form-select" id="zip" required>
-                            <option value="">Wybierz dodatkowy cel podróży...</option>
-                            <option value="">Wybierz główny cel podróży...</option>
-                            <option>Cena</option>
-                            <option>Kuchnia</option>
-                            <option>Kultura</option>
-                            <option>Natura</option>
-                            <option>Podróż</option>
-                            <option>Przygoda</option>
-                            <option>Relaks</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Wymagane wybranie celu podróży.
-                        </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="privacy-accept" v-model="privacyAccepted">
+                        <label class="form-check-label" for="privacy-accept">Akceptuję politykę prywatności</label>
                     </div>
+                    <button class="btn btn-primary" type="submit">Zaproponuj destynacje</button>
                 </div>
 
+            </form>
 
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="privacy-accept">
-                    <label class="form-check-label" for="privacy-accept">Akceptuję politykę prywatności</label>
-                </div>
-                <button class="btn btn-primary" type="submit">Zaproponuj destynacje</button>
-
+            <div v-if="showRecommendation" class="mt-3">
+                <p>Na podstawie Twoich wymagań polecamy:</p>
+                <p v-if="isWinter">Wycieczkę na Maderę.</p>
+                <p v-else>Wycieczkę w Bieszczady.</p>
             </div>
-        </form>
+
+
+        </div>  <!--Koniec sekcji odpowiedzialnej za formularz z propozycjami-->
     </div>
 
 
-    <div class="b-example-divider"></div>
+    <div class="b-divider"></div>
 
+    <!--Sekcja odpowiedzialna za dziennik podróżniczy-->
     <div class="d-flex gap-2 justify-content-center py-5">
-        <div id="app" class="container">
+        <div id="app2" class="container">
             <a id="travel-diary"></a>
             <h3>Dziennik podróży</h3>
 
-            <div class="py-3"></div>
+            <div class="py-3"></div>    <!--Przerwa między nagłówkiem a formularzem-->
 
+<!--Formularz - zbieranie danych-->
             <form class="needs-validation" v-if="!editingItem" @submit.prevent="addItem">
-                <label for="continent" class="form-label my-1">Kontynent:</label>
-                <select id="continent" class="form-select" v-model="newItem.continent" required>
-                    <option value="Europa">Europa</option>
-                    <option value="Ameryka Północna">Ameryka Północna</option>
-                    <option value="Ameryka Południowa">Ameryka Południowa</option>
-                    <option value="Azja">Azja</option>
-                    <option value="Afryka">Afryka</option>
-                    <option value="Australia">Australia</option>
-                </select>
-
-                <label for="country" class="form-label my-1">Kraj:</label>
-                <input type="text" id="country" class="form-control" v-model="newItem.country" required>
-                    <!-- Dodaj komunikat o błędzie -->
-<!--                <div v-if="!isCountryValid" class="text-danger">Nazwa kraju nie może zawierać cyfr.</div>-->
-<!--                </div>-->
-
-                <label for="travelPurpose" class="form-label my-1">Cel Podróży:</label>
-                <select id="travelPurpose" class="form-select" v-model="newItem.travelPurpose" required>
-                    <option value="Biznes">Biznes</option>
-                    <option value="Cena">Cena</option>
-                    <option value="Kuchnia">Kuchnia</option>
-                    <option value="Kultura">Kultura</option>
-                    <option value="Natura">Natura</option>
-                    <option value="Podróż">Podróż</option>
-                    <option value="Przygoda">Przygoda</option>
-                    <option value="Relaks">Relaks</option>
-                </select>
-                <label for="month" class="form-label my-1">Miesiąc:</label>
-                <select id="month" class="form-select" v-model="newItem.month" required>
-                    <option value="Styczeń">Styczeń</option>
-                    <option value="Luty">Luty</option>
-                    <option value="Marzec">Marzec</option>
-                    <option value="Kwiecień">Kwiecień</option>
-                    <option value="Maj">Maj</option>
-                    <option value="Czerwiec">Czerwiec</option>
-                    <option value="Lipiec">Lipiec</option>
-                    <option value="Sierpień">Sierpień</option>
-                    <option value="Wrzesień">Wrzesień</option>
-                    <option value="Październik">Październik</option>
-                    <option value="Listopad">Listopad</option>
-                    <option value="Grudzień">Grudzień</option>
-                </select>
-                <label for="cost" class="form-label my-1">Koszt:</label>
-                <input type="number" id="cost" class="form-control" v-model="newItem.cost" required>
+                <template v-for="field in formFields">
+                    <label :for="field.key" class="form-label my-1">{{ field.label }}</label>
+                    <template v-if="field.type === 'select'">
+                        <select :id="field.key" class="form-select" v-model="newItem[field.key]" required>
+                            <option v-for="option in field.options" :value="option">{{ option }}</option>
+                        </select>
+                    </template>
+                    <template v-else>
+                        <input :id="field.key" :type="field.key === 'cost' ? 'number' : 'text'" class="form-control"
+                               v-model="newItem[field.key]" required>
+                    </template>
+                </template>
                 <button class="btn btn-primary col-xxl-5 my-5 mx-auto d-grid gap-2" type="submit">Dodaj</button>
             </form>
+<!--Koniec formularza - zbieranie danych-->
+
+<!--Formularz - edycja danych-->
             <form class="needs-validation" v-if="editingItem" @submit.prevent="updateItem">
-                <label for="continent" class="form-label">Kontynent:</label>
-                <select id="continent" class="form-select" v-model="editingItem.continent" required>
-                    <option value="Europa">Europa</option>
-                    <option value="Ameryka Północna">Ameryka Północna</option>
-                    <option value="Ameryka Południowa">Ameryka Południowa</option>
-                    <option value="Azja">Azja</option>
-                    <option value="Afryka">Afryka</option>
-                    <option value="Australia">Australia</option>
-                </select>
+                <template v-for="field in formFields">
+                    <label :for="field.key" class="form-label">{{ field.label }}</label>
+                    <template v-if="field.type === 'select'">
+                        <select :id="field.key" class="form-select" v-model="editingItem[field.key]" required>
+                            <option v-for="option in field.options" :value="option">{{ option }}</option>
+                        </select>
+                    </template>
+                    <template v-else>
+                        <input :id="field.key" :type="field.key === 'cost' ? 'number' : 'text'" class="form-control"
+                               v-model="editingItem[field.key]" required>
+                    </template>
+                </template>
 
-
-                <label for="country" class="form-label">Kraj:</label>
-                <input type="text" id="country" class="form-control" v-model="editingItem.country" required>
-
-
-                <label for="travelPurpose" class="form-label">Cel Podróży:</label>
-                <select id="travelPurpose" class="form-select" v-model="editingItem.travelPurpose" required>
-                    <option value="Biznes">Biznes</option>
-                    <option value="Cena">Cena</option>
-                    <option value="Kuchnia">Kuchnia</option>
-                    <option value="Kultura">Kultura</option>
-                    <option value="Natura">Natura</option>
-                    <option value="Podróż">Podróż</option>
-                    <option value="Przygoda">Przygoda</option>
-                    <option value="Relaks">Relaks</option>
-                </select>
-                <label for="month" class="form-label">Miesiąc:</label>
-                <select id="month" class="form-select" v-model="editingItem.month" required>
-                    <option value="Styczeń">Styczeń</option>
-                    <option value="Luty">Luty</option>
-                    <option value="Marzec">Marzec</option>
-                    <option value="Kwiecień">Kwiecień</option>
-                    <option value="Maj">Maj</option>
-                    <option value="Czerwiec">Czerwiec</option>
-                    <option value="Lipiec">Lipiec</option>
-                    <option value="Sierpień">Sierpień</option>
-                    <option value="Wrzesień">Wrzesień</option>
-                    <option value="Październik">Październik</option>
-                    <option value="Listopad">Listopad</option>
-                    <option value="Grudzień">Grudzień</option>
-                </select>
-                <label for="cost" class="form-label">Koszt:</label>
-                <input type="number" id="cost" class="form-control" v-model="editingItem.cost" required>
-                <button class="btn btn-primary" type="submit">Zapisz</button>
-                <button class="btn btn-secondary" @click="cancelEdit">Anuluj</button>
+                <button class="btn btn-primary mt-3" type="submit">Zapisz</button>
+                <button class="btn btn-secondary mt-3" @click="cancelEdit">Anuluj</button>
             </form>
+<!--Koniec formularza - edycja danych-->
 
 
+            <div class="py-1"></div>    <!--Przerwa między formularzem a tabelą-->
 
-            <div class="py-1"></div>
-
-            <table class="table">
+            <table class="table">   <!--Tabela z historią podróży-->
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -422,43 +348,30 @@
                     </td>
                 </tr>
                 </tbody>
-            </table>
+            </table>    <!--Koniec tabeli z historią podróży-->
+
+            <!--Obliczanie łącznego kosztu wszytkich podróży-->
             <p class="mt-3">Łączny koszt podróży: {{ totalCostComputed }} PLN</p>
 
         </div>
     </div>
+    <!--Koniec sekcji odpowiedzialnej za dziennik podróżniczy-->
 
 
-
-    <div class="b-example-divider"></div>
-
+</main> <!--Koniec głównej części strony-->
 
 
-
-
-    <div class="d-flex gap-2 justify-content-center py-5">
-chwilowo place holder
-    </div>
-
-    <div class="b-example-divider"></div>
-
-
-
-</main>
-
-<footer class="footer mt-auto py-3 bg-body-tertiary text-center">
+<footer class="footer mt-auto py-3 bg-body-tertiary text-center">   <!--Stopka-->
     <div class="container">
         <span>Wszelkie prawa zastrzeżone &copy; 2022–echo date("Y"); Henson&CO</span>
     </div>
-</footer>
+</footer>   <!--Koniec stopki-->
 
 
 <script src="./js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2.4"></script>
 <script src="./js/app.js"></script>
-<script>
 
-</script>
 
 </body>
 </html>
